@@ -25,7 +25,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
                 "Intern Java Developer",
                 "Entry-level internship for aspiring Java developers. Gain hands-on experience with mentorship.",
                 LocalDateTime.now(),
-                true
+                true,
+                3
                 )
         );
         save(new Vacancy(
@@ -33,7 +34,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
                 "Junior Java Developer",
                 "Entry position for beginner Java developers. Basic knowledge required, learning on the job.",
                 LocalDateTime.now(),
-                true
+                true,
+                1
                 )
         );
         save(new Vacancy(
@@ -41,7 +43,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
                 "Junior+ Java Developer",
                 "Transition level between Junior and Middle. Some project experience expected.",
                 LocalDateTime.now(),
-                true
+                true,
+                2
                 )
         );
         save(new Vacancy(
@@ -49,7 +52,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
                 "Middle Java Developer",
                 "Mid-level Java developer role. Solid Java skills, active participation in development projects.",
                 LocalDateTime.now(),
-                true
+                true,
+                3
                 )
         );
         save(new Vacancy(
@@ -57,7 +61,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
                 "Middle+ Java Developer",
                 "Advanced Mid-level role. Strong framework knowledge (e.g., Spring), code optimization skills.",
                 LocalDateTime.now(),
-                true
+                true,
+                1
                 )
         );
         save(new Vacancy(
@@ -65,7 +70,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
                 "Senior Java Developer",
                 "Senior-level Java developer. Leads complex projects, mentors juniors, designs architecture.",
                 LocalDateTime.now(),
-                true
+                true,
+                2
                 )
         );
     }
@@ -91,7 +97,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
                                 vacancy.getTitle(),
                                 vacancy.getDescription(),
                                 oldVacancy.getCreationDate(),
-                                vacancy.getVisible()
+                                vacancy.getVisible(),
+                                vacancy.getCityId()
                 )
         ) != null;
     }
