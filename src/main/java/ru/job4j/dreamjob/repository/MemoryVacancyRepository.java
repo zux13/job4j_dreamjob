@@ -26,7 +26,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
                 "Entry-level internship for aspiring Java developers. Gain hands-on experience with mentorship.",
                 LocalDateTime.now(),
                 true,
-                3
+                3,
+                0
                 )
         );
         save(new Vacancy(
@@ -35,7 +36,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
                 "Entry position for beginner Java developers. Basic knowledge required, learning on the job.",
                 LocalDateTime.now(),
                 true,
-                1
+                1,
+                0
                 )
         );
         save(new Vacancy(
@@ -44,7 +46,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
                 "Transition level between Junior and Middle. Some project experience expected.",
                 LocalDateTime.now(),
                 true,
-                2
+                2,
+                0
                 )
         );
         save(new Vacancy(
@@ -53,7 +56,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
                 "Mid-level Java developer role. Solid Java skills, active participation in development projects.",
                 LocalDateTime.now(),
                 true,
-                3
+                3,
+                0
                 )
         );
         save(new Vacancy(
@@ -62,7 +66,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
                 "Advanced Mid-level role. Strong framework knowledge (e.g., Spring), code optimization skills.",
                 LocalDateTime.now(),
                 true,
-                1
+                1,
+                0
                 )
         );
         save(new Vacancy(
@@ -71,7 +76,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
                 "Senior-level Java developer. Leads complex projects, mentors juniors, designs architecture.",
                 LocalDateTime.now(),
                 true,
-                2
+                2,
+                0
                 )
         );
     }
@@ -98,7 +104,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
                                 vacancy.getDescription(),
                                 oldVacancy.getCreationDate(),
                                 vacancy.getVisible(),
-                                vacancy.getCityId()
+                                vacancy.getCityId(),
+                                vacancy.getFileId()
                 )
         ) != null;
     }
