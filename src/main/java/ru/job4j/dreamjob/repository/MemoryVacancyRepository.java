@@ -4,6 +4,7 @@ import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
 import ru.job4j.dreamjob.model.Vacancy;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
@@ -22,37 +23,49 @@ public class MemoryVacancyRepository implements VacancyRepository {
         save(new Vacancy(
                 0,
                 "Intern Java Developer",
-                "Entry-level internship for aspiring Java developers. Gain hands-on experience with mentorship."
+                "Entry-level internship for aspiring Java developers. Gain hands-on experience with mentorship.",
+                LocalDateTime.now(),
+                true
                 )
         );
         save(new Vacancy(
                 0,
                 "Junior Java Developer",
-                "Entry position for beginner Java developers. Basic knowledge required, learning on the job."
+                "Entry position for beginner Java developers. Basic knowledge required, learning on the job.",
+                LocalDateTime.now(),
+                true
                 )
         );
         save(new Vacancy(
                 0,
                 "Junior+ Java Developer",
-                "Transition level between Junior and Middle. Some project experience expected."
+                "Transition level between Junior and Middle. Some project experience expected.",
+                LocalDateTime.now(),
+                true
                 )
         );
         save(new Vacancy(
                 0,
                 "Middle Java Developer",
-                "Mid-level Java developer role. Solid Java skills, active participation in development projects."
+                "Mid-level Java developer role. Solid Java skills, active participation in development projects.",
+                LocalDateTime.now(),
+                true
                 )
         );
         save(new Vacancy(
                 0,
                 "Middle+ Java Developer",
-                "Advanced Mid-level role. Strong framework knowledge (e.g., Spring), code optimization skills."
+                "Advanced Mid-level role. Strong framework knowledge (e.g., Spring), code optimization skills.",
+                LocalDateTime.now(),
+                true
                 )
         );
         save(new Vacancy(
                 0,
                 "Senior Java Developer",
-                "Senior-level Java developer. Leads complex projects, mentors juniors, designs architecture."
+                "Senior-level Java developer. Leads complex projects, mentors juniors, designs architecture.",
+                LocalDateTime.now(),
+                true
                 )
         );
     }
@@ -73,7 +86,14 @@ public class MemoryVacancyRepository implements VacancyRepository {
     public boolean update(Vacancy vacancy) {
         return vacancies.computeIfPresent(vacancy.getId(),
                 (id, oldVacancy)
-                        -> new Vacancy(oldVacancy.getId(), vacancy.getTitle(), vacancy.getDescription())) != null;
+                        -> new Vacancy(
+                                oldVacancy.getId(),
+                                vacancy.getTitle(),
+                                vacancy.getDescription(),
+                                oldVacancy.getCreationDate(),
+                                vacancy.getVisible()
+                )
+        ) != null;
     }
 
     @Override
