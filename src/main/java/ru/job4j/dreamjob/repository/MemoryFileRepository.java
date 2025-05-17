@@ -1,5 +1,6 @@
 package ru.job4j.dreamjob.repository;
 
+import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
 import ru.job4j.dreamjob.model.File;
 
@@ -9,6 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
+@ThreadSafe
 public class MemoryFileRepository implements FileRepository {
 
     private final AtomicInteger nextId = new AtomicInteger(0);

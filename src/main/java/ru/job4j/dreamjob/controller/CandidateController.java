@@ -12,7 +12,6 @@ import ru.job4j.dreamjob.service.CityService;
 
 @Controller
 @RequestMapping("/candidates")
-@ThreadSafe
 public class CandidateController {
 
     private final CandidateService candidateService;
