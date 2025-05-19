@@ -7,6 +7,7 @@ import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 import ru.job4j.dreamjob.model.User;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Optional;
 
 @Repository
@@ -34,9 +35,11 @@ public class Sql2oUserRepository implements UserRepository {
             user.setId(generatedId);
             return Optional.of(user);
         } catch (Sql2oException e) {
-            LOGGER.error("Error saving user: {}", user, e);
-            return Optional.empty();
+            if (e.getCause() instanceof SQLIntegrityConstraintViolationException) {
+                LOGGER.error("Error saving user: {}", user, e);
+            }
         }
+        return Optional.empty();
     }
 
     @Override
